@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Spotify - Listen Your Fav Music</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="menu">
+                <ul type="none">
+                    <li><img src="/images and media/Spotify_icon.svg.png" alt="" width="35px"></li>
+                    <li title="removable">Home</li>
+                    <li title="removable">Trending</li>
+                    <li title="removable">Player</li>
+                </ul>
+                <div class="menu_btn" onclick="toggle_menu()">
+                    <div id="upper" class="rods"></div>
+                    <div id="middle" class="rods"></div>
+                    <div id="lower" class="rods"></div>
+                </div>
+            </div>
+            <div class="drop_down_menu">
+                <ul id="drop_menu_ul" type="none">
+                    <li>Home</li>  
+                    <li>Trending</li>
+                    <li>Player</li>  
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="back">
+            <div id="songs">
+                <div class="list" id="list1" onclick="play_this_song( 0)">
+                    Bhar do Jholi Meri Ya mohammad
+                    <audio src="/images and media/Bhar Do Jholi Meri - Bajrangi Bhaijaan (Adnan Sami).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list2" onclick="play_this_song(1)">
+                    Pehli Pehli Baar Mohabbat ki hai
+                    <audio src="/images and media/05. Pehli Pehli Baar.mp3" ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list3" onclick="play_this_song(2)">
+                    Kuch toh Bata Zindagi
+                    <audio src="/images and media/06 Zindagi - Bajrangi Bhaijaan (Zubin Nautiyal) 190Kbps.mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list4" onclick="play_this_song(3)">
+                    Tu Jo Mila
+                    <audio src="/images and media/07 Tu Jo Mila (Bajrangi Bhaijaan) KK 190Kbps.mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list5" onclick="play_this_song(4)">
+                    Humnava mere
+                    <audio src="/images and media/Humnava Mere(PagalWorld.com.se).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list6" onclick="play_this_song(5)">
+                    Kesariya
+                    <audio src="/images and media/Kesariya(PagalWorld.com.se).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list7" onclick="play_this_song(6)">
+                    Mast Nazron Se
+                    <audio src="/images and media/Mast Nazron Se(PagalWorld.com.se).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list8" onclick="play_this_song(7)">
+                    Sakhiyan 2
+                    <audio src="/images and media/Sakhiyan 2(PagalWorld.com.se).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list9" onclick="play_this_song(8)">
+                    Tere Jaisa Yaar Kahan
+                    <audio src="/images and media/Tere Jaisa Yaar Kahan (LoFi Mix)(PagalWorld.com.se) (1).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+                <div class="list" id="list10" onclick="play_this_song(9)">
+                    Teri Galiyon Se Uthega Janaza Jab Mera
+                    <audio src="/images and media/Teri Galiyon Se Uthega Janaza Jab Mera(PagalWorld.com.se).mp3"
+                        ontimeupdate="display_time(this)"></audio>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="player">
+            <div class="side_timers" id="side_timer_start">
+                <p id="start_time"> 00:00</p>
+            </div>
+
+            <div class="timeLineGif">
+                <input id="time_line" type="range" max="100" step="0.001" onchange="change_timeline_of_song()" >
+            </div>
+
+            <div class="side_timers" id="side_timer_end">
+                <p id="end_time"> 00:00</p>
+            </div>
+
+            <img id="gif" src="/images and media/gif_image.png" alt="" width="45px">
+
+             <div id="current_song_in_player"></div>
+
+            <div id="volume_section">
+                <div id="shuffle_div">
+                <box-icon name='shuffle' color="white" id="shuffle_icon" onclick="shuffle(this)"></box-icon>
+                </div>
+                <div onclick="mute()" style="display: inline-block;">
+                <img id="volume_icon" src="" alt="a" width="24px" ></div>
+                <input type="range" id="volume_bar" onchange="volume_controller(this)" max="1" step="0.01">
+            </div>
+            
+            <div class="Player_btns">
+                <box-icon name='skip-previous' color="white" onclick="play_prev_song()"></box-icon>
+                <div id="play">
+                    <box-icon name='play' color="white" onclick="change_to_pause()"></box-icon>
+                </div>
+                <div id="pause">
+                    <box-icon name='pause' color="white" onclick="change_to_play()"></box-icon>
+                </div>
+                <box-icon name='skip-next' color="white" onclick="play_next_song()"></box-icon>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="/logic.js"></script>
+
+</html>
